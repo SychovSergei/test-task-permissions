@@ -1,0 +1,17 @@
+# This file is used by the build system to adjust CSS and JS output to support the specified browsers below.
+# For additional information regarding the format and rule options, please see:
+# https://github.com/browserslist/browserslist
+
+# You can see what browsers were selected by your queries by running:
+#   npx browserslist
+
+# .browserslistrc
+last 5 versions
+> 1%
+maintained node versions
+not dead
+not op_mini all
+not kaios 2.5
+not node 22.5.0
+not node 20.15.0
+not node 18.20.0
