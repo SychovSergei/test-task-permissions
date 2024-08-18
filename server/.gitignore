@@ -1,0 +1,16 @@
+/node_modules
+dist/
+
+.env
+.env.development
+.env.production
+
+.firebase/
+
+#test development parts
+public/
+
+#typescr-functions/
+temp_src/
+functions/
+typescr-functions/
