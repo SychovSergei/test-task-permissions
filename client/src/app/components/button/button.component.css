@@ -1,0 +1,66 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px 16px;
+
+  border: 0;
+  border-radius: var(--button-border-radius);
+
+  font-size: 1rem;
+  color: var(--button-text-color);
+  background-color: var(--button-color-bg);
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--secondary-color) 60%, white);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, var(--secondary-color) 90%, black);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    background-color: color-mix(in srgb, var(--secondary-color) 30%, white);
+  }
+}
+
+button.button--primary {
+  color: white;
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 80%, white);
+  }
+  &:active {
+    background-color: color-mix(in srgb, var(--primary-color) 90%, black);
+  }
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    background-color: color-mix(in srgb, var(--primary-color) 30%, white);
+  }
+}
+
+button.button--secondary {
+  background-color: var(--secondary-color);
+  &:hover {
+    background-color: color-mix(in srgb, var(--secondary-color) 80%, white);
+  }
+  &:active {
+    background-color: color-mix(in srgb, var(--secondary-color) 90%, black);
+  }
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    background-color: color-mix(in srgb, var(--secondary-color) 30%, white);
+  }
+}
+
+button.button--custom {
+}
+

@@ -1,0 +1,16 @@
+<button class="button"
+				[type]="type"
+				[disabled]="disabled"
+				[ngClass]="{
+				 				'button--primary' : buttonType === 'primary',
+				 				'button--secondary' : buttonType === 'secondary',
+				 				'button--custom' : buttonType === 'custom'
+				 				 }"
+				[ngStyle]="{ 'background-color' : buttonType === 'custom' ? customBgColor : '',
+				'color' : buttonType === 'custom' ? customColor : '', }"
+>
+	<ng-container *ngIf="label; else elseBlock"></ng-container>
+	<ng-template #elseBlock>
+		<ng-content></ng-content>
+	</ng-template>
+</button>
