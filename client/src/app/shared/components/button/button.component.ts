@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 type TButtonType = "button" | "submit" | "reset";
 
@@ -6,6 +7,8 @@ type TButtonType = "button" | "submit" | "reset";
 	selector: "app-button",
 	templateUrl: "./button.component.html",
 	styleUrls: ["./button.component.css"],
+	standalone: true,
+	imports: [CommonModule],
 })
 export class ButtonComponent {
 	@Input() label: string = "";
@@ -16,5 +19,9 @@ export class ButtonComponent {
 	@Input() customColor: string = "";
 	@Input() customBgColor: string = "";
 
-	@Output() buttonClick: EventEmitter<any> = new EventEmitter<any>();
+	@Output() onClick: EventEmitter<any> = new EventEmitter<any>();
+
+	onButtonClick() {
+		this.onClick.emit();
+	}
 }
