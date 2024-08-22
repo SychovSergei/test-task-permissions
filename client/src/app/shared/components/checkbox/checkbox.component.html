@@ -1,0 +1,12 @@
+<div class="custom-checkbox">
+	<input class="custom-checkbox__input"
+				 type="checkbox"
+				 id="ch_{{ id }}"
+				 (change)="onCheckboxChange($event)"
+				 [checked]="checked">
+	<span (click)="onSpanClick()"></span>
+	<label class="custom-checkbox__label"
+			 id="{{id}}" for="ch_{{id}}">
+		<ng-content></ng-content>
+	</label>
+</div>
