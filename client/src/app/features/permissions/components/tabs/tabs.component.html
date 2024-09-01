@@ -1,0 +1,16 @@
+<div class="tabs">
+  <div class="tabs__header">
+    <p class="tabs__header-title">{{ title }}</p>
+    <div class="tabs__header-buttons" role="tablist">
+      <button class="tabs__header-button"
+              *ngFor="let tab of tabsList"
+              [ngClass]="{'tabs__header-button--active' : activeTabId === tab.id}"
+              role="tab"
+              [attr.aria-controls]="tab.id"
+              (click)="selectTab(tab.id)">{{ tab.tabName }}</button>
+    </div>
+  </div>
+  <div class="tabs__content" role="tabpanel">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<app-card>
+	<app-tabs [title]="title"
+						[activeTabId]="currentTabId"
+						[tabsList]="tabsData"
+						(activeTab)="setActiveTab($event)">
+		<div class="loading" *ngIf="isLoading">
+			<h3>LOADING....</h3>
+		</div>
+
+		<div *ngIf="!isLoading">
+
+			<app-tab-list [data]="currentTabData"
+										[activeItemId]="currentItemId"
+										(onRenameItemId)="renameItem($event)"
+										(onSelectItemId)="setCurrentItem($event)">
+
+				<div actions class="actions">
+					<ng-container *ngIf="isShowActionButtons">
+						<div class="actions__list">
+							<div class="actions__list-item">
+								<app-button label="{{ '+ Add New ' + currentTabDataName }}"
+														(onClick)="actionCreate('add-new-item')">
+								</app-button>
+							</div>
+						</div>
+					</ng-container>
+				</div>
+
+				<div details class="details">
+					<app-details [data]="currentDetailsData"
+											 [createMode]="createMode"
+											 (createItem)="createDetails($event)"
+											 (updateItem)="updateDetails($event)">
+					</app-details>
+				</div>
+
+			</app-tab-list>
+
+		</div>
+
+	</app-tabs>
+</app-card>
