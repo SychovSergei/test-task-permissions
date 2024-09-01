@@ -1,0 +1,12 @@
+<div class="input__wrap">
+	<input class="input"
+				 [ngClass]="{'input__error' : errorText}"
+				 [placeholder]="placeholder"
+				 [type]="type"
+				 [value]="value"
+				 (input)="onInput($event)"
+				 (blur)="onTouched()">
+	<div class="input__error" *ngIf="errorText">
+		<span>{{ errorText }}</span>
+	</div>
+</div>

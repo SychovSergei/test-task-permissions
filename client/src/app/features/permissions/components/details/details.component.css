@@ -1,0 +1,121 @@
+.details {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		min-height: 50px;
+		padding-bottom: 16px;
+		border-bottom: 2px solid #ddd;
+
+		&-name {
+			width: 100%;
+			margin-bottom: 16px;
+		}
+
+		&-filters {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			width: 100%;
+			margin-top: 10px;
+
+			&-title {
+				font-size: 1.2rem;
+				padding-left: 8px;
+				margin-bottom: 16px;
+			}
+			&-controls {
+				display: flex;
+				flex-direction: column;
+				margin: 0 8px;
+			}
+			&-field:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	&__list {
+		padding: 8px 0;
+		overflow-y: auto;
+	}
+
+	&__list-item {
+		padding: 16px 8px;
+		border-bottom: 1px solid #ddd;
+
+		&-checkbox {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			font-size: 1rem;
+		}
+	}
+
+	&__list-item:nth-child(even) {
+		background-color: #fdfdfd;
+	}
+
+	&__actions {
+		padding: 8px;
+	}
+	&__paginator {
+		padding: 8px;
+	}
+
+	@media only screen and (min-width: 481px) {
+		padding: 16px 8px;
+
+		&__header {
+
+			&-filters {
+				display: flex;
+				flex-direction: column;
+				margin-top: initial;
+
+				&-title {
+					font-size: 1.4rem;
+					margin-bottom: 8px;
+				}
+
+				&-controls {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					margin: 0;
+				}
+				&-field:not(:last-child) {
+					margin-bottom: initial;
+					margin-right: 10px;
+				}
+			}
+
+		}
+	}
+
+	@media only screen and (min-width: 769px) {
+		&__header {
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: end;
+
+			&-filters {
+				display: flex;
+				flex-direction: row;
+
+				&-title {
+					font-size: 1.6rem;
+					padding-left: 8px;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

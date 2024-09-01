@@ -1,0 +1,21 @@
+<div class="pagination__wrapper">
+	<ng-container *ngIf="totalItems > 0">
+		<button class="pagination__button"
+						type="button"
+						(click)="pageDecrement()"
+						[disabled]="currentPage === 0 || pagesAmount === 1">&laquo;</button>
+
+		<ng-container *ngFor="let pageNum of pages">
+			<button class="pagination__button" type="button"
+							(click)="setCurrentPage(pageNum)"
+							[disabled]="pagesAmount === 1"
+							[ngClass]="{ 'pagination__button--active': currentPage === pageNum}"
+			>{{ pageNum+1 }}</button>
+		</ng-container>
+
+		<button class="pagination__button"
+						type="button"
+						(click)="pageIncrement()"
+						[disabled]="currentPage === pagesAmount - 1 || pagesAmount === 1">&raquo;</button>
+	</ng-container>
+</div>

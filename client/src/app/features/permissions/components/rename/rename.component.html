@@ -1,0 +1,25 @@
+<div class="rename-form" >
+  <form [formGroup]="renameForm" class="rename-form__form-wrap">
+		<div class="rename-form__form-field">
+			<app-input formControlName="rename"
+								 [errorText]="renameForm.get('rename')?.dirty &&
+									  	renameForm.get('rename')?.errors &&
+									   	renameForm.get('rename')?.errors?.['minlength']
+									  ? 'The length must be at least 2 symbols.' : null"
+								 type="text"></app-input>
+		</div>
+		<div class="rename-form__form-actions">
+			<div class="rename-form__form-button">
+				<app-button type="button"
+										(onClick)="cancel()"
+										label="Cancel"></app-button>
+			</div>
+			<div class="rename-form__form-button">
+				<app-button type="button" buttonType="primary"
+										(onClick)="rename()"
+										[disabled]="isDisabled || renameForm.invalid"
+										label="Ok"></app-button>
+			</div>
+    </div>
+  </form>
+</div>

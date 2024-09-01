@@ -1,0 +1,63 @@
+<div class="details">
+	<form [formGroup]="detailsForm" (ngSubmit)="submitForm()">
+		<div class="details__header">
+			<div class="details__header-name"
+					 *ngIf="createMode">
+				<app-input placeholder="Enter name*"
+									 formControlName="name"
+									 [errorText]="detailsForm.get('name')?.touched &&
+									  	detailsForm.get('name')?.errors &&
+									   	detailsForm.get('name')?.errors?.['minlength']
+									  ? 'The length must be at least 2 symbols.' : null"
+									 type="text"></app-input>
+			</div>
+			<div class="details__header-filters">
+				<div class="details__header-filters-title">{{ data?.dataTypeName }}</div>
+				<div class="details__header-filters-controls"
+						 formGroupName="filters">
+					<div class="details__header-filters-field">
+						<app-input placeholder="Filter by label..."
+											 formControlName="label"
+											 type="text"></app-input>
+					</div>
+					<div class="details__header-filters-field">
+						<app-selector formControlName="type" [options]="filterOptions"></app-selector>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="role-list"
+				 class="details__list"
+				 formGroupName="items">
+			<ng-container *ngIf="filteredData?.length; else noDetailsData">
+				<ng-container *ngFor="let item of filteredData">
+					<div class="details__list-item">
+						<div class="details__list-item-checkbox">
+							<app-checkbox [formControlName]="item.id"
+														[id]="item.id"
+														[checked]="item.selected">
+								{{ item.label }} <span *ngIf="item.isNew">(new)</span>
+							</app-checkbox>
+						</div>
+					</div>
+				</ng-container>
+			</ng-container>
+			<ng-template #noDetailsData>
+				<h4 style="text-align: center;">No data</h4>
+			</ng-template>
+		</div>
+		<div class="details__paginator">
+			<app-paginator [totalItems]="currentLengthData"
+										 [currentPage]="currentPageNumber"
+										 [itemsPerPage]="itemsPerPage"
+										 (onPageChange)="onPageChange($event)"
+			></app-paginator>
+		</div>
+		<div class="details__actions">
+			<app-button type="submit" buttonType="primary"
+									*ngIf="createMode || (!createMode && isChangedValue)"
+									[disabled]="detailsForm.invalid || isDisabled"
+									label="{{ createMode ? 'Create' : 'Update' }}"></app-button>
+		</div>
+	</form>
+</div>

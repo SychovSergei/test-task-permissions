@@ -1,0 +1,74 @@
+<div class="tab-list">
+	<ul class="tab-list__list">
+		<li class="tab-list__list-item"
+				[ngClass]="{ 'tab-list__list-item_active' : activeItemId === data.id}"
+				[attr.data-id]="data.id"
+				*ngFor="let data of mainData?.mainData; trackBy: trackByFn"
+				id="{{data.id}}"
+				(click)="showDetails(data.id)">
+			<div class="tab-list__list-item-header">
+				<span class="tab-list__list-item-header-title">️{{ data.name }}</span>
+				<div class="tab-list__list-item-header-button">
+					<div class="edit-icon"
+							 appRename
+							 [appRenameSourceData]="data.name"
+							 (appRenameActionRename)="renameItem($event)"
+					>✏️</div>
+				</div>
+			</div>
+
+<!--					 [@toggleHeight]="activeItemId === data.id ? 'expanded' : 'collapsed'"-->
+<!--					 [ngClass]="{ 'expanded' : activeItemId === data.id }"-->
+			<div class="tab-list__list-item-body"
+			>
+				<ng-container *ngIf="isSmallScreen && activeItemId === data.id">
+					<ng-template [ngTemplateOutlet]="detailsTemplate"
+											 [ngTemplateOutletContext]="{ $implicit: data.id }"
+					></ng-template>
+				</ng-container>
+			</div>
+		</li>
+		<div class="tab-list__actions">
+			<div class="tab-list__action-buttons">
+				<ng-content select="[actions]"></ng-content>
+			</div>
+			<ng-container *ngIf="isSmallScreen && activeItemId === 'add-new-item'">
+				<div class="tab-list__action-body">
+					<ng-template [ngTemplateOutlet]="createNewItemTemplate"
+											 [ngTemplateOutletContext]="{ $implicit: mainData?.mainDataType }">
+					</ng-template>
+					<ng-template [ngTemplateOutlet]="detailsTemplate"
+											 [ngTemplateOutletContext]="{ $implicit: activeItemId }">
+					</ng-template>
+				</div>
+			</ng-container>
+		</div>
+	</ul>
+</div>
+<div class="content-details">
+	<ng-container *ngIf="!isSmallScreen">
+		<ng-container *ngIf="activeItemId === 'add-new-item'">
+			<div class="content-details__title">
+				<ng-template [ngTemplateOutlet]="createNewItemTemplate"
+										 [ngTemplateOutletContext]="{ $implicit: mainData?.mainDataType }">
+				</ng-template>
+			</div>
+		</ng-container>
+	</ng-container>
+
+	<ng-container *ngIf="!isSmallScreen">
+		<ng-template [ngTemplateOutlet]="detailsTemplate"
+								 [ngTemplateOutletContext]="{ $implicit: activeItemId }"
+		></ng-template>
+	</ng-container>
+</div>
+
+<ng-template #createNewItemTemplate let-data>
+	<div class="details-title">Create new item of {{ data }}</div>
+</ng-template>
+
+<ng-template #detailsTemplate let-data>
+	<div *ngIf="data">
+		<ng-content select="[details]"></ng-content>
+	</div>
+</ng-template>
