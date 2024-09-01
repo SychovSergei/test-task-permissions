@@ -15,7 +15,7 @@ class RolesController {
 
   getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const roles = await this.roleService.getDataItems();
+      const roles = await this.roleService.getData();
       return res.status(200).json(roles);
     } catch (e) {
       return next(e);
@@ -25,7 +25,7 @@ class RolesController {
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data: IMainEntityMainDataCreate<"roles"> = req.body;
-      const newItemAdded = await this.roleService.addEntity(data);
+      const newItemAdded = await this.roleService.add(data);
 
       return res.status(200).json(newItemAdded);
     } catch (e) {
@@ -40,7 +40,7 @@ class RolesController {
         throw RolesError.BadRequest("bad-request", "Id is not correct");
       }
       const { newName }: IMainEntityMainDataRename = req.body;
-      const renamedItem = await this.roleService.renameEntity(id, newName);
+      const renamedItem = await this.roleService.rename(id, newName);
 
       return res.status(200).json(renamedItem);
     } catch (e) {

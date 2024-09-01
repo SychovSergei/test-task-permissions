@@ -14,7 +14,7 @@ class GroupsController {
 
   getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const groups = await this.groupService.getDataItems();
+      const groups = await this.groupService.getData();
       return res.status(200).json(groups);
     } catch (e) {
       return next(e);
@@ -24,7 +24,7 @@ class GroupsController {
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data: IMainEntityMainDataCreate<"groups"> = req.body;
-      const newItemAdded = await this.groupService.addEntity(data);
+      const newItemAdded = await this.groupService.add(data);
       return res.status(200).json(newItemAdded);
     } catch (e) {
       return next(e);
@@ -38,7 +38,7 @@ class GroupsController {
         throw GroupsError.BadRequest("bad-request", "Id is not correct");
       }
       const { newName }: IMainEntityMainDataRename = req.body;
-      const renamedItem = await this.groupService.renameEntity(id, newName);
+      const renamedItem = await this.groupService.rename(id, newName);
 
       return res.status(200).json(renamedItem);
     } catch (e) {

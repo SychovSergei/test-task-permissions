@@ -1,10 +1,11 @@
 export type TMainEntityTypeList = "groups" | "roles";
 export type TPermissionsType = "permissions";
 
-export interface IPermissionsData {
+export interface IDetailCommonData {
   id: string;
   name: string;
 }
+export interface IPermissionsData extends IDetailCommonData {}
 
 export type DetailTypeMap = {
   groups: "roles";
@@ -17,9 +18,8 @@ export interface IMainEntity<T extends TMainEntityTypeList> {
   details: IMainEntityDetails<T>;
 }
 
-export interface IMainEntityMainData<T extends TMainEntityTypeList> {
-  id: string;
-  name: string;
+export interface IMainEntityMainData<T extends TMainEntityTypeList>
+  extends IDetailCommonData {
   detailsType: DetailTypeMap[T];
   detailsData: IDetailsData[];
 }

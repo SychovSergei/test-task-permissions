@@ -1,23 +1,13 @@
-import { BaseService, getDetailNames, getDetailTypeOf } from "./base-service";
-import { IMainEntity } from "../models/data.model";
+import { BaseService } from "./base-service";
+import { GroupsDto } from "../models/groups.dto";
+import { GroupDtoFactory } from "../models/group-dto-factory";
 
 export class GroupService extends BaseService<"groups"> {
   constructor() {
     super("groups");
   }
 
-  async getDataItems(): Promise<IMainEntity<"groups">> {
-    const detailsType = getDetailTypeOf(this.dataType);
-    const detailsSource = this.dbService.getDataByType(detailsType);
-    const detailNames = getDetailNames(detailsSource);
-    return {
-      mainDataType: this.dataType,
-      mainData: this.items,
-      details: {
-        type: detailsType,
-        dataTypeName: "Roles",
-        dataNames: detailNames,
-      },
-    } as IMainEntity<"groups">;
+  async getData(): Promise<GroupsDto> {
+    return await GroupDtoFactory.create();
   }
 }
