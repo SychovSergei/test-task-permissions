@@ -20,10 +20,6 @@
         {
           "id": "u4v5w6x7-y8z9-0a1b-c2d3-e4f5g6h7i8j9",
           "selected": true
-        },
-        {
-          "id": "a268e916-d330-4b4f-83a2-1b2ee35ddf62",
-          "selected": false
         }
       ]
     },
@@ -52,7 +48,7 @@
     },
     {
       "id": "c3d4e5f6-g7h8-9i0j-1k2l-m3n4o5p6q7r",
-      "name": "Managers - Tech1",
+      "name": "Managers - Tech",
       "detailsType": "roles",
       "detailsData": [
         {
@@ -69,17 +65,13 @@
         },
         {
           "id": "u4v5w6x7-y8z9-0a1b-c2d3-e4f5g6h7i8j9",
-          "selected": false
-        },
-        {
-          "id": "45d06319-41e4-4ea5-9566-988f94d0e6db",
           "selected": false
         }
       ]
     },
     {
       "id": "d4e5f6g7-h8i9-0j1k-2l3m-n4o5p6q7r8s",
-      "name": "Managers - Billing555",
+      "name": "Managers - Billing",
       "detailsType": "roles",
       "detailsData": [
         {
@@ -96,10 +88,6 @@
         },
         {
           "id": "u4v5w6x7-y8z9-0a1b-c2d3-e4f5g6h7i8j9",
-          "selected": true
-        },
-        {
-          "id": "45d06319-41e4-4ea5-9566-988f94d0e6db",
           "selected": true
         }
       ]
