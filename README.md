@@ -96,8 +96,23 @@ Starts the Angular development server with a proxy configuration to forward API 
 - `npm run dev`: Starts the Express server using nodemon for automatic restarts on code changes.
 - `npm run json-server`: Starts json-server using the db.json file on port 3001.
 
-Project Structure
+### Project Structure
 
 - client/: The frontend part of the application using Angular, including components and services for managing groups and roles.
 - server/: The backend part using Node.js with Express, which proxies requests to json-server for handling data.
+
+### Project Screenshots
+1. Common group view 
+<br>
+<img src="groups_common.png" alt="Create new Group" width="500" />
+<br>
+<br>
+2. Create new group
+<br>
+<img src="groups_new.png" alt="Project Screenshot" width="500" />
+<br>
+<br>
+3. Rename group
+<br>
+<img src="groups_rename.png" alt="Rename Group" width="500" />
 
