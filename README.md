@@ -45,7 +45,7 @@ This project is an application for managing a list of groups and roles, where ro
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/groups-roles-management.git
+git clone https://github.com/SychovSergei/test-task-permissions.git
 ```
 2. Navigate to the project directory and install dependencies for both frontend and backend.
 
