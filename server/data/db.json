@@ -188,7 +188,7 @@
   "roles": [
     {
       "id": "r1s2t3u4-v5w6-x7y8-z9a0-b1c2d3e4f5g6",
-      "name": "Pizza editor",
+      "name": "Team Lead",
       "detailsType": "permissions",
       "detailsData": [
         {
@@ -211,7 +211,7 @@
     },
     {
       "id": "s2t3u4v5-w6x7-y8z9-0a1b-c2d3e4f5g6h7",
-      "name": "Dust sniffer",
+      "name": "Senior Specialist",
       "detailsType": "permissions",
       "detailsData": [
         {
@@ -234,7 +234,7 @@
     },
     {
       "id": "t3u4v5w6-x7y8-z9a0-b1c2-d3e4f5g6h7i8",
-      "name": "Poker cheater",
+      "name": "Specialist",
       "detailsType": "permissions",
       "detailsData": [
         {
@@ -257,7 +257,7 @@
     },
     {
       "id": "u4v5w6x7-y8z9-0a1b-c2d3-e4f5g6h7i8j9",
-      "name": "Drug user",
+      "name": "Junior Specialist",
       "detailsType": "permissions",
       "detailsData": [
         {
